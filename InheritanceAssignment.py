@@ -18,6 +18,7 @@ class Electric(Guitar):
 
 # This is a specific type of guitar that has many of
 #of the same attributes of all guitars but is unique
+#in it's operation    
 
 class Acoustic(Guitar):
     style = ' '
