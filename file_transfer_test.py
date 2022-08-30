@@ -77,13 +77,9 @@ class ParentWindow(Frame):
         destination =  self.destination_dir.get()
         #Gets a list of files in the source directory
         source_files = os.listdir(source)
-        first = dt.datetime.now()
-        delta = dt.timedelta(seconds=-86400)
-        second = first + delta
-        
         #Runs through each file in source directory
         for i in source_files:
-            if dt.datetime.fromtimestamp(os.path.getmtime(i)) < second:
+            if dt.datetime.fromtimestamp(os.path.getmtime(i)) < (dt.datetime.now() - dt.timedelta(days=(1))):
                 #moves each file from the source to the destination
                 shutil.move(source + '/' + i, destination)
                 print(i + ' was successfully transferred.')
